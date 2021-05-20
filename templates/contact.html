@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content= "width=device-width, initial scale=1.0">
+        <title>Sam's Art Portfolio</title> 
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="/static/css/styles.css">
+    </head>
+
+    <body>
+        <header>
+            <div class="mylogo">
+                <img src="/static/images/sam_logo.png" width="50" height="50" alt="sam's logo">
+            </div>
+
+            <button class="nav-btn" aria-label="nav-button">
+                <span class="btn"></span>
+            </button>
+
+            <nav class="mynav">
+                <ul class="mynav_ls">
+                    <li class="mynav_item"> <a href="index#home" class="mynav_link">Home</a></li>
+                    <li class="mynav_item"> <a href="index#skills" class="mynav_link">Creative Styles</a></li>
+                    <li class="mynav_item"> <a href="index#about" class="mynav_link">About Me</a></li>
+                    <li class="mynav_item"> <a href="index#projects" class="mynav_link">Art Projects</a></li>
+                    <li class="mynav_item"> <a href="contact" class="mynav_link">Contuct Me</a></li>
+                </ul>
+            </nav>
+        </header>
+         <!--Top Introduction Section-->
+         <section class="topintro" id="home">
+            <h1 class="sectitle sectitle_intro">
+                Hello. I am <strong>Sam Jones</strong>A self-taught artist.
+            </h1>
+
+            <p class="secsubtitle secsubtitle_intro"><strong>Don't feel shy to reach out. </strong></p>
+
+            <img src="/static/images/artist.jpg" width= "220" height="220" alt="sam display image" class="first_img">
+
+        </section>
+        
+        <section style="position: center;">
+            <h2>Contact</h2>
+            <form action="{{ url_for('contact') }}" method="post">
+            <table border="2">
+            <tr>
+            <td>First Name :</td> 
+            <td><input type="text" name="fname" /></td>
+            </tr>
+            <tr>
+            <td>Last Name :</td> 
+            <td><input type="text" name="lname" /></td>
+            </tr>
+            <tr>
+            <td>Email  :</td> 
+            <td><input type="email" name="email" /></td>
+            </tr>
+            <tr>
+            <td>Message :</td> 
+            <td><textarea name="message" rows="4" cols="50"></textarea></td>
+            </tr>
+            <tr>
+            <td><input type="submit" value="Submit" /></td>
+            </tr>
+            </table>
+            </form>
+            {% with messages = get_flashed_messages() %}
+              {% if messages %}
+                <ul class=flashes>
+                {% for message in messages %}
+                  <li>{{ message }}</li>
+                {% endfor %}
+                </ul>
+              {% endif %}
+            {% endwith %}
+        </section>
+        
+        <!--page footer-->
+        <footer class="footer">
+            <!--insert your own here-->
+            <a href="mailto:fort.smg@gmail.com" class="footer_link">fort.smg@gmail.com</a>
+
+            <ul class="social_links">
+                <li class="socialitem">
+                    <a class="socialitemlink" href="https://twitter.com"><i class="fab fa-twitter"></i> Twitter</a>
+                </li>
+                <li class="socialitem">
+                    <a class="socialitemlink" href="https://facebook.com"><i class="fab fa-facebook-square"></i> Facebook</a>
+                </li>
+                <li class="socialitem">
+                    <a class="socialitemlink:" href="https://instagram.com"><i class="fab fa-instagram-square"></i> Instagram</a>
+                </li>
+            </ul>
+        </footer>
+        <script src="/static/js/index.js"></script>
+    </body>
+</html>
